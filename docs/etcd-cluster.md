@@ -1,4 +1,4 @@
-# 一 搭建3节点etcd-cluster
+# 搭建3节点etcd-cluster
 ## 1. 准备服务器
 准备3台centos虚拟机，每台2核cpu和2G内存，配置好root账户，并安装好docker，后续的所有操作都是使用root账户。虚拟机具体信息如下表：
 
@@ -14,30 +14,47 @@
 192.168.182.129 etcd-cluster-node3
 ```
 
+放开etcd提供服务的 2379 和 2380 端口
+```bash
+firewall-cmd --zone=public --add-port=2379/tcp --permanent
+firewall-cmd --zone=public --add-port=2380/tcp --permanent
+systemctl stop firewalld.service
+systemctl start firewalld.service
+```
+
 > 使用ubuntu的同学也可以参考此文档，需要注意替换系统命令
 
 ## 2. 在所有节点安装etcd
 ### 2.1 在node1安装etcd
 ```bash
-cp etcd-node1.service  /lib/systemd/system
+cp etcd-cluster/etcd-node1.service  /lib/systemd/system
+mkdir -p /var/lib/etcd
 systemctl enable etcd-node1.service
 systemctl start etcd-node1 
+journalctl -f -u etcd-node1.service
+netstat -ntlp
 ```
 [etcd-node1.service][1]
 
 ### 2.2 在node2安装etcd
 ```bash
-cp etcd-node2.service  /lib/systemd/system
+cp etcd-cluster/etcd-node2.service  /lib/systemd/system
+mkdir -p /var/lib/etcd
 systemctl enable etcd-node2.service 
 systemctl start etcd-node2
+journalctl -f -u etcd-node2.service
+netstat -ntlp
 ```
 [etcd-node2.service][2]
 
 ### 2.3 在node3安装etcd
 ```bash
-cp etcd-node3.service  /lib/systemd/system
+cp etcd-cluster/etcd-node3.service  /lib/systemd/system
+mkdir -p /var/lib/etcd
 systemctl enable etcd-node3.service 
 systemctl start etcd-node3
+journalctl -f -u etcd-node3.service
+netstat -ntlp
 ```
 [etcd-node3.service][3]
 
