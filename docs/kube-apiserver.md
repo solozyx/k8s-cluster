@@ -23,28 +23,29 @@ pgrep -l kube-apiserver
 
 ## 3. 重点配置说明
 
+- ExecStart=/root/kubernetes-bins/kube-apiserver  
 可执行文件路径  
-ExecStart=/root/kubernetes-bins/kube-apiserver 
 
+- admission-control  
 认证授权相关  
---admission-control
 
+- insecure-bind-address=0.0.0.0  
 非安全端口(8080)绑定的监听地址 这里表示监听所有地址  
---insecure-bind-address=0.0.0.0 
 
+- kubelet-https=false   
 不使用https  
---kubelet-https=false 
 
+- service-cluster-ip-range=10.68.0.0/16  
 k8s集群的虚拟ip的地址范围 指定 kube-apiserver 集群IP范围 16位子网掩码 其中 0.0 这2位是任意的 10.68. 是固定的 表示使用 kube-proxy 的时候 service IP 地址范围  
---service-cluster-ip-range=10.68.0.0/16 
 
+- service-node-port-range=20000-40000  
 service的node port的端口范围限制 服务发现监听在Node上的端口范围 可以供外面的服务访问  
---service-node-port-range=20000-40000 
 
+- etcd-servers=http://192.168.182.128:2379,http://192.168.182.130:2379,http://192.168.182.129:2379   
 kube-apiserver 是唯一可以直接操作etcd的模块  
---etcd-servers=http://192.168.182.128:2379,http://192.168.182.130:2379,http://192.168.182.129:2379 
 
+- v=2  
 日志级别 2 INFO级 搭建遇到问题调高日志级别看更多的debug日志  
---v=2
+
 
 [1]: https://github.com/solozyx/k8s-cluster/tree/master/kubernetes-simple/master-node/kube-apiserver.service
