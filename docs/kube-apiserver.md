@@ -2,7 +2,7 @@
 
 | 系统类型 | IP地址 | 节点角色 | CPU | Memory | Hostname |
 | :------: | :--------: | :-------: | :-----: | :---------: | :-----: |
-| centos7 64位 | 192.168.182.128 | k8s master |   2    | 2G | etcd-cluster-node1 |
+| centos7 64位 | 192.168.182.128 | k8s master |   2    | 2G | node1 |
 
 ## 1. kube-apiserver
 kube-apiserver 是 kubernetes 最重要的核心组件之一

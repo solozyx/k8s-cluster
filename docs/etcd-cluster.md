@@ -1,26 +1,6 @@
 # 搭建3节点etcd-cluster
-## 1. 准备服务器
-准备3台centos虚拟机，每台2核cpu和2G内存，配置好root账户，并安装好docker，后续的所有操作都是使用root账户。虚拟机具体信息如下表：
-
-| 系统类型 | IP地址 | 节点角色 | CPU | Memory | Hostname |
-| :------: | :--------: | :-------: | :-----: | :---------: | :-----: |
-| centos7 64位 | 192.168.182.128 | k8s master |   2    | 2G | etcd-cluster-node1 |
-| centos7 64位 | 192.168.182.130 | k8s worker |   2    | 2G | etcd-cluster-node2 |
-| centos7 64位 | 192.168.182.129 | k8s worker |   2    | 2G | etcd-cluster-node3 |
-
-```/etc/hosts
-192.168.182.128 etcd-cluster-node1
-192.168.182.130 etcd-cluster-node2
-192.168.182.129 etcd-cluster-node3
-```
-
-放开etcd提供服务的 2379 和 2380 端口
-```bash
-firewall-cmd --zone=public --add-port=2379/tcp --permanent
-firewall-cmd --zone=public --add-port=2380/tcp --permanent
-systemctl stop firewalld.service
-systemctl start firewalld.service
-```
+## 1. etcd
+etcd是一个可靠的分布式KV存储产品，由CoreOS公司开发，其底层使用Raft算法保证一致性，主要用于共享配置和服务发现
 
 > 使用ubuntu的同学也可以参考此文档，需要注意替换系统命令
 
