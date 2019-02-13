@@ -27,9 +27,10 @@ systemctl stop firewalld.service
 systemctl start firewalld.service
 ```
 
-## [1 搭建3节点etcd-cluster][1]
-## [2 在k8s集群主节点 部署 kube-apiserver][2]
-## [3 在k8s集群主节点 部署 kube-controller-manager][3]
+### [1 搭建3节点etcd-cluster][1]
+### [2 在k8s集群主节点 部署 kube-apiserver][2]
+### [3 在k8s集群主节点 部署 kube-controller-manager][3]
+### [4 在k8s集群主节点 部署 kube-scheduler][4]
 
 
 
@@ -38,3 +39,4 @@ systemctl start firewalld.service
 [1]: https://github.com/solozyx/k8s-cluster/tree/master/docs/etcd-cluster.md
 [2]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kube-apiserver.md
 [3]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kube-controller-manager.md
+[4]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kube-scheduler.md
