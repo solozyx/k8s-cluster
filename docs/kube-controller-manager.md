@@ -2,7 +2,7 @@
 
 | 系统类型 | IP地址 | 节点角色 | CPU | Memory | Hostname |
 | :------: | :--------: | :-------: | :-----: | :---------: | :-----: |
-| centos7 64位 | 192.168.182.128 | k8s master |   2    | 2G | node1 |
+| centos7 64位 | 192.168.174.130 | k8s master |   2    | 2G | node1 |
 
 ## 1. kube-controller-manager
 - kube-controller-manager 和 cloud-controller-manager 组成了 kubernetes 的大脑  

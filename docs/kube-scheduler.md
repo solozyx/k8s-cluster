@@ -23,6 +23,6 @@ journalctl -f -u kube-scheduler
 对外服务的监听地址,这里表示只有本机的程序可以访问它  
   
 - master=http://127.0.0.1:8080 
-apiserver的url,kube-scheduler 与 kube-apiserver 进行通信  
+apiserver的url, kube-scheduler 与 kube-apiserver 进行通信  
 
 [1]: https://github.com/solozyx/k8s-cluster/tree/master/kubernetes-simple/master-node/kube-scheduler.service

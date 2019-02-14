@@ -43,9 +43,9 @@ netstat -ntlp
 etcdctl member list
 
 [root@CentOS kubernetes-bins]# ./etcdctl member list 
-65c6bdcc0c215bc4: name=node1 peerURLs=http://192.168.182.128:2380 clientURLs=http://192.168.182.128:2379 isLeader=true
-8cc3ba684014c64f: name=node3 peerURLs=http://192.168.182.129:2380 clientURLs=http://192.168.182.129:2379 isLeader=false
-9829c5eda31aac68: name=node2 peerURLs=http://192.168.182.130:2380 clientURLs=http://192.168.182.130:2379 isLeader=false
+65c6bdcc0c215bc4: name=node1 peerURLs=http://192.168.174.130:2380 clientURLs=http://192.168.174.130:2379 isLeader=true
+8cc3ba684014c64f: name=node3 peerURLs=http://192.168.174.128:2380 clientURLs=http://192.168.174.128:2379 isLeader=false
+9829c5eda31aac68: name=node2 peerURLs=http://192.168.174.129:2380 clientURLs=http://192.168.174.129:2379 isLeader=false
 [root@CentOS kubernetes-bins]# 
 ```
 

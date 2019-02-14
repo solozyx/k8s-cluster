@@ -4,22 +4,22 @@
 
 | 系统类型 | IP地址 | 节点角色 | CPU | Memory | Hostname |
 | :------: | :--------: | :-------: | :-----: | :---------: | :-----: |
-| centos7 64位 | 192.168.182.128 | k8s master |   2    | 2G | node1 |
-| centos7 64位 | 192.168.182.130 | k8s worker |   2    | 2G | node2 |
-| centos7 64位 | 192.168.182.129 | k8s worker |   2    | 2G | node3 |
+| centos7 64位 | 192.168.174.130 | k8s master |   2    | 2G | node1 |
+| centos7 64位 | 192.168.174.129 | k8s worker |   2    | 2G | node2 |
+| centos7 64位 | 192.168.174.128 | k8s worker |   2    | 2G | node3 |
 
 ```/etc/hosts
-192.168.182.128 node1
-192.168.182.130 node2
-192.168.182.129 node3
+192.168.174.130 node1
+192.168.174.129 node2
+192.168.174.128 node3
 ```
 
 ```bash
-# 放开 etcd 提供服务的 2379 和 2380 端口
+# 在3个节点 放开 etcd 提供服务的 2379 和 2380 端口
 firewall-cmd --zone=public --add-port=2379/tcp --permanent
 firewall-cmd --zone=public --add-port=2380/tcp --permanent
 
-# 放开 kube-apiserver 提供服务的 6443 和 8080 端口
+# 在k8s master节点 放开 kube-apiserver 提供服务的 6443 和 8080 端口
 #firewall-cmd --zone=public --add-port=6443/tcp --permanent
 firewall-cmd --zone=public --add-port=8080/tcp --permanent
 
@@ -31,6 +31,7 @@ systemctl start firewalld.service
 ### [2 在k8s集群主节点 部署 kube-apiserver][2]
 ### [3 在k8s集群主节点 部署 kube-controller-manager][3]
 ### [4 在k8s集群主节点 部署 kube-scheduler][4]
+### [5 在k8s集群所有节点 部署 kube-calico-node][5]
 
 
 
@@ -39,4 +40,4 @@ systemctl start firewalld.service
 [1]: https://github.com/solozyx/k8s-cluster/tree/master/docs/etcd-cluster.md
 [2]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kube-apiserver.md
 [3]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kube-controller-manager.md
-[4]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kube-scheduler.md
+[4]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kube-calico-node.md
