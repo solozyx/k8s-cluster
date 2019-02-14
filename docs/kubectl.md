@@ -27,26 +27,27 @@ kubectl config set-context kubernetes --cluster=kubernetes
 kubectl config use-context kubernetes
 
 cat ~/.kube/config 
+
+kubectl get pods
 ```
 
 通过这些设置最终目的是生成了一个配置文件: ` ~/.kube/config ` 可以手写 或 复制一个文件就不需要上面的命令
 
 ```
-[root@CentOS ~]# 
 [root@CentOS ~]# cd kubernetes-bins/
 [root@CentOS kubernetes-bins]# ls
 calico  calicoctl  calico-ipam  etcd  etcdctl  kube-apiserver  kube-controller-manager  kubectl  
 kubelet  kube-proxy  kube-scheduler  loopback  nohup.out  VERSION.md
-[root@CentOS kubernetes-bins]# 
-[root@CentOS kubernetes-bins]# kubectl config set-cluster kubernetes  --server=http://192.168.174.130:8080 
-bash: kubectl: 未找到命令...
-[root@CentOS kubernetes-bins]# 
+
 [root@CentOS kubernetes-bins]# ./kubectl config set-cluster kubernetes  --server=http://192.168.174.130:8080 
 Cluster "kubernetes" set.
+
 [root@CentOS kubernetes-bins]# ./kubectl config set-context kubernetes --cluster=kubernetes
 Context "kubernetes" created.
+
 [root@CentOS kubernetes-bins]# ./kubectl config use-context kubernetes
 Switched to context "kubernetes".
+
 [root@CentOS kubernetes-bins]# cat ~/.kube/config 
 apiVersion: v1
 clusters:
@@ -62,5 +63,8 @@ current-context: kubernetes
 kind: Config
 preferences: {}
 users: []
+
+[root@CentOS kubernetes-bins]# ./kubectl get pods
+No resources found.
 [root@CentOS kubernetes-bins]# 
 ```

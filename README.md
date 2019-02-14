@@ -33,7 +33,7 @@ systemctl start firewalld.service
 ### [4 在k8s集群主节点 部署 kube-scheduler][4]
 ### [5 在k8s集群所有节点 部署 kube-calico-node][5]
 ### [6 在k8s集群任意节点部署kubectl工具 这里在 k8s-cluster master 主节点部署 kubectl][6]
-
+### [7 在k8s集群所有worker节点 部署 kubelet][7]
 
 
 
@@ -43,3 +43,4 @@ systemctl start firewalld.service
 [4]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kube-scheduler.md
 [5]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kube-calico-node.md
 [6]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kubectl.md
+[7]: https://github.com/solozyx/k8s-cluster/tree/master/docs/kubelet.md
