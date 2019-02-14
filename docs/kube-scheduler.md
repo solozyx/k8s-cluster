@@ -2,7 +2,7 @@
 
 | 系统类型 | IP地址 | 节点角色 | CPU | Memory | Hostname |
 | :------: | :--------: | :-------: | :-----: | :---------: | :-----: |
-| centos7 64位 | 192.168.182.128 | k8s master |   2    | 2G | node1 |
+| centos7 64位 | 192.168.174.130 | k8s master |   2    | 2G | node1 |
 
 ## 1. kube-scheduler
 - kube-scheduler 负责分配调度 Pod 到集群内的节点上,它监听 kube-apiserver ,查询还未分配 Node 的 Pod ,然后根据调度策略为这些 Pod 分配节点. kubernetes的各种调度策略就是通过它实现的.
