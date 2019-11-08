@@ -27,13 +27,17 @@ systemctl stop firewalld.service
 systemctl start firewalld.service
 ```
 
-### [1 搭建3节点etcd-cluster][1]
-### [2 在k8s集群主节点 部署 kube-apiserver][2]
-### [3 在k8s集群主节点 部署 kube-controller-manager][3]
-### [4 在k8s集群主节点 部署 kube-scheduler][4]
-### [5 在k8s集群所有节点 部署 kube-calico-node][5]
-### [6 在k8s集群任意节点部署kubectl工具 这里在 k8s-cluster master 主节点部署 kubectl][6]
-### [7 在k8s集群所有worker节点 部署 kubelet][7]
+## 一. etcd集群
+### [1. 搭建3节点etcd-cluster][1]
+
+## 二. 剥离了认证授权功能的k8s集群部署
+### [1. 在k8s集群主节点 部署 kube-apiserver][2]
+### [2. 在k8s集群主节点 部署 kube-controller-manager][3]
+### [3. 在k8s集群主节点 部署 kube-scheduler][4]
+### [4. 在k8s集群所有节点 部署 kube-calico-node][5]
+### [5. 在k8s集群任意节点部署kubectl工具 这里在 k8s-cluster master 主节点部署 kubectl][6]
+### [6. 在k8s集群所有worker节点 部署 kubelet][7]
+
 
 
 
